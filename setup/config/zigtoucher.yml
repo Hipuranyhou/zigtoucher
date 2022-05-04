@@ -1,0 +1,54 @@
+---
+# SWITCH[interactive,keylog,sniff,reset,steal,scan]
+mode: "interactive"
+
+log:
+  verbose: True
+  #file: "/path/to/log/file"
+
+keys:
+  touchlink:
+    #master: ""
+    certification: "0xC0C1C2C3C4C5C6C7C8C9CACBCCCDCECF"
+  classical:
+    certification: "0xD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDF"
+
+transceiver:
+  # SWITCH[sdr,pcap]
+  type: "SDR"
+
+  # IEEE
+  #address: "<random>"
+
+  wireshark: False
+  #pcap: "/path/to/pcap/file"
+  rxgain: 30.0
+  txgain: 89.0
+  samprate: 4000000
+  sdr:
+    flowgraph: "zigtoucher"
+    timeout: 20
+
+modes:
+  timeout: 60
+  results: True
+  #pcap: "/path/to/pcap/file"
+  #csv: "/path/to/csv/file"
+  #nwkfile: "/path/to/yaml/nwk/file"
+
+  # LIST[INT[11,26]] or {all,primary,secondary}
+  channels:
+    - 11
+
+  # IEEE
+  #target: ""
+
+  reset:
+    identena: True
+    identdur: 0x0003
+  keylog:
+    follow: False
+    nwkcreate: True
+  sniff:
+    #key: ""
+    show: False
