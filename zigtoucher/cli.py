@@ -64,7 +64,7 @@ class CLI(cmd.Cmd):
     __HELP_STR: dict = {
         "address": 'Source IEEE address of transceiver or "<random>"',
         "channels": "List of channels to cycle or {all|primary|secondary}",
-        "csv": 'Path to CSV file or "<random>"',
+        "csv": 'Path to output CSV file or "<random>"',
         "follow": "Continue in sniff mode after first catched key",
         "identdur": "Identify request duration",
         "identena": "Send identify request",
@@ -72,7 +72,7 @@ class CLI(cmd.Cmd):
         "key": "Key used for decryption",
         "nwkcreate": "Create NWK files",
         "nwkfile": "PATH to NWK file",
-        "pcap": 'Path to PCAP file or "<random>"',
+        "pcap": 'Path to output PCAP file or "<random>"',
         "results": "Print detailed run results",
         "rxgain": "Transceiver RX gain in dB",
         "samprate": "Transceiver samprate in samples",
