@@ -8,6 +8,7 @@ log:
 
 keys:
   touchlink:
+    # KEY, SHA-256 57379035b23fed6aa2424e4791a21a13c7e9aa7881f0aa455a935f40ecbe41ff
     #master: ""
     certification: "0xC0C1C2C3C4C5C6C7C8C9CACBCCCDCECF"
   classical:
