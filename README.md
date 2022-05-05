@@ -1,5 +1,7 @@
 # zigtoucher
 
+[![CodeQL](https://github.com/Hipuranyhou/zigtoucher/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Hipuranyhou/zigtoucher/actions/workflows/codeql-analysis.yml)
+
  Advanced ZigBee Touchlink sniffer and packet sender.
 
 ![zigtoucher demo dark](examples/keylog/keylog-dark.png#gh-dark-mode-only)![zigtoucher demo light](examples/keylog/keylog-light.png#gh-light-mode-only)
