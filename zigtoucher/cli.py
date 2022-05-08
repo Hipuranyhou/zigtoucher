@@ -56,7 +56,7 @@ class CLI(cmd.Cmd):
         "keylog": "Sniff Touchlink key transactions and decrypt them",
         "reset": "Reset Touchlink enabled devices in range to factory default",
         "scan": "Scan for Touchlink enabled devices",
-        "sniff": "Sniff ZigBee packets and optionaly decrypt them",
+        "sniff": "Sniff ZigBee packets and optionally decrypt them",
         "steal": "Steal Touchlink enabled devices in range to specified network",
         "transceiver": "Set physical transceiver settings or reset to defaults",
     }
@@ -383,7 +383,7 @@ class CLI(cmd.Cmd):
             *self.__TRANSCEIVER_OPTS,
         )
 
-    __KEYLOG_OPTS: set = __COMMON_OPTS.union({"csv", "follow", "nwkcreate"})
+    __KEYLOG_OPTS: set = __COMMON_OPTS.union({"csv", "follow", "nwkcreate", "target"})
 
     def do_keylog(self, args):
         if not config.get("keys.touchlink.master"):
@@ -403,6 +403,7 @@ class CLI(cmd.Cmd):
             self.__parser.csv,
             self.__parser.follow,
             self.__parser.nwkcreate,
+            self.__parser.target,
         )
         self.__do_mode()
 

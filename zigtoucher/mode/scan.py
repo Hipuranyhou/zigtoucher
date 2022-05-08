@@ -153,7 +153,7 @@ class Scan(modebase.Mode):
                     self.__dest_ieee_addr.set(pkt.src_addr)
                     if self.__dest_ieee_addr.get() in self.__targets[self._channel]:
                         self.__reset()
-                        continue  # skip already reset
+                        continue  # skip already found
                     logger.info(f"{self.__dest_ieee_addr} on channel {self._channel}")
                     try:
                         self.__writer.write([self.__dest_ieee_addr, self._channel])

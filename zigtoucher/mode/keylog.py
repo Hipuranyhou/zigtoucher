@@ -28,6 +28,7 @@ class KeyLog(modebase.Mode):
         csv: str,
         follow: bool,
         nwkcreate: bool,
+        target: zb_e.IEEEAddr,
     ) -> None:
         """Constructor saving all options for this run mode.
 
@@ -50,8 +51,27 @@ class KeyLog(modebase.Mode):
         self.__csv = csv
         self.__follow = follow
         self.__nwkcreate = nwkcreate
+        self.__target = target
         self.__transactions = {channel: {} for channel in self._channels}
         self._next_channel()
+
+    def __pkt_skippable(self, pkt: sp.Packet) -> bool:
+        """Is this packet Touchlink and target?
+
+        :param pkt: Packet to be checked.
+        :type pkt: sp.Packet
+        :return: True if not interesting packet, False otherwise.
+        :rtype: bool
+        """
+        return (
+            pkt is None
+            or not pkt.haslayer(sp.ZigbeeZLLCommissioningCluster)
+            or (
+                not pkt.haslayer(sp.ZLLScanRequest)
+                and pkt.src_addr != self.__target
+                and pkt.dest_addr != self.__target
+            )
+        )
 
     def __print_results(self) -> None:
         """Print detailed results by channel."""
@@ -134,8 +154,8 @@ class KeyLog(modebase.Mode):
                     if isinstance(self._transceiver, transceiver.PCAP):
                         break  # sniff on pcap file magic
                     continue
-                if not pkt.haslayer(sp.ZigbeeZLLCommissioningCluster):
-                    continue  # ignore non touchlink packets
+                if self.__pkt_skippable(pkt):
+                    continue  # fastpath
 
                 transaction_id = pkt.inter_pan_transaction_id
                 if transaction_id not in self.__transactions[self._channel]:
