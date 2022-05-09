@@ -68,6 +68,7 @@ class KeyLog(modebase.Mode):
             or not pkt.haslayer(sp.ZigbeeZLLCommissioningCluster)
             or (
                 not pkt.haslayer(sp.ZLLScanRequest)
+                and self.__target
                 and pkt.src_addr != self.__target
                 and pkt.dest_addr != self.__target
             )
