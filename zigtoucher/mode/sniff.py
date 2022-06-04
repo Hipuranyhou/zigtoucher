@@ -59,7 +59,7 @@ class Sniff(modebase.Mode):
             print(
                 termcolor.colored(f"\n Channel {channel} \n", attrs=["bold", "reverse"])
             )
-            print(f"    Catched {cnts} {'packet' if cnts == 1 else 'packets'}.")
+            print(f"     {cnts} {'packet' if cnts == 1 else 'packets'}.")
 
     def __print_summary(self) -> None:
         """Print quick results."""
@@ -67,7 +67,7 @@ class Sniff(modebase.Mode):
         for cnts in self.__cnts.values():
             cnt += cnts
         print(
-            termcolor.colored("\n Catched", attrs=["reverse"])
+            termcolor.colored("\n Caught", attrs=["reverse"])
             + termcolor.colored(
                 f" {cnt} {'packet' if cnt == 1 else 'packets'}. \n",
                 attrs=["reverse", "bold"],

@@ -103,7 +103,7 @@ class KeyLog(modebase.Mode):
                 self._export.append(transaction.pkts)
 
         print(
-            termcolor.colored("\n Catched", attrs=["reverse"])
+            termcolor.colored("\n Caught", attrs=["reverse"])
             + termcolor.colored(
                 f" {transactions} {'transaction' if transactions == 1 else 'transactions'}",
                 attrs=["reverse", "bold"],

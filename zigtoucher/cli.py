@@ -65,7 +65,7 @@ class CLI(cmd.Cmd):
         "address": 'Source IEEE address of transceiver or "<random>"',
         "channels": "List of channels to cycle or {all|primary|secondary}",
         "csv": 'Path to output CSV file or "<random>"',
-        "follow": "Continue in sniff mode after first catched key",
+        "follow": "Continue in sniff mode after first caught key",
         "identdur": "Identify request duration",
         "identena": "Send identify request",
         "idx": "Transaction index to export",
